@@ -1,4 +1,4 @@
-# FastAPI Template 📗
+# FastAPI SQL Template 📗
 FastAPI + SQL
 
 ![](./banner.png)
