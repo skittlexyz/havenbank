@@ -38,7 +38,7 @@ async def get_transformer(id: int, db: AsyncSession = Depends(get_session)):
         else: raise HTTPException(status_code = status.HTTP_404_NOT_FOUND, detail = "Character not found!")
 
 @router.put("/{id}", response_model = all_schemas.TransformersSchema, status_code = status.HTTP_202_ACCEPTED)
-async def put_transformer(id: int, transformer = all_schemas.TransformersSchema, db: AsyncSession = Depends(get_session)):
+async def put_transformer(id: int, transformer: all_schemas.TransformersSchema, db: AsyncSession = Depends(get_session)):
     async with db as session:
         query = select(all_models.TransformersModel).filter(all_models.TransformersModel.id == id)
         result = await session.execute(query)
