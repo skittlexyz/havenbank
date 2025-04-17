@@ -8,15 +8,20 @@ import NotFound from './pages/NotFound.jsx'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import ForgotPassword from './pages/ForgotPassword.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<PageWrapper content={<App />} />} />
+
         <Route path='/login' element={<PageWrapper content={<Login />} />} />
         <Route path='/register' element={<PageWrapper content={<Register />} />} />
         <Route path='/forgot-password' element={<PageWrapper content={<ForgotPassword />} />} />
+
+        <Route path='/dashboard' element={<PageWrapper content={<Dashboard />} />} />
+
         <Route path='*' element={<PageWrapper content={<NotFound />} />} />
       </Routes>
     </BrowserRouter>

@@ -12,7 +12,7 @@ function Register() {
     return (
         <>
             <div className="flex flex-col gap-4 items-end p-4">
-                <Logo className="mb-16" />
+                <Logo subtitle={true} className="mb-16" />
                 <div className="flex gap-4 w-full">
                     <Button onClick={() => {}} text={"Google"} color="black" icon={GoogleIcon} />
                     <Button onClick={() => {}} text={"Apple"} color="black" icon={AppleIcon} />

@@ -12,7 +12,7 @@ function ForgotPassword() {
     return (
         <>
             <div className="flex flex-col gap-4 items-end p-4">
-                <Logo className="mb-16" />
+                <Logo subtitle={true} margin={false}/>
                 <Divider />
                 <p className="w-full text-center">Insira seu email para recuperar sua senha.</p>
                 <Input type={"email"} placeholder={"Email"}/>
