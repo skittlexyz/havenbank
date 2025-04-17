@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+* { font-family: "Public Sans", sans-serif; color: var(--f-icon); user-select: none; }
+:root {
+    --bg: #050e17;
+    --overlay: #1e222d;
+    --overlay-hover: #181c24;
+    --accent: #c8ff18;
+    --accent-hover: #a1cc12;
+    --u-icon: #909090;
+    --f-icon: #d3d3d3;
+}
+input { outline: none; }
