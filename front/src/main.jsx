@@ -13,6 +13,8 @@ import Profile from './pages/Profile.jsx'
 import Accounts from './pages/Accounts.jsx'
 import Transactions from './pages/Transactions.jsx'
 import Cards from './pages/Cards.jsx'
+import Logout from './pages/Logout.jsx'
+import Settings from './pages/Settings.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -23,6 +25,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/login' element={<PageWrapper content={<Login />} />} />
         <Route path='/register' element={<PageWrapper content={<Register />} />} />
         <Route path='/forgot-password' element={<PageWrapper content={<ForgotPassword />} />} />
+        <Route path='/logout' element={<PageWrapper content={<Logout />} />} />
 
         <Route path='/dashboard' element={<PageWrapper content={<Dashboard />} />} />
 
@@ -30,6 +33,8 @@ createRoot(document.getElementById('root')).render(
         <Route path='/accounts' element={<PageWrapper content={<Accounts />} />} />
         <Route path='/transactions' element={<PageWrapper content={<Transactions />} />} />
         <Route path='/cards' element={<PageWrapper content={<Cards />} />} />
+        
+        <Route path='/settings' element={<PageWrapper content={<Settings />} />} />
 
         <Route path='*' element={<PageWrapper content={<NotFound />} />} />
       </Routes>
