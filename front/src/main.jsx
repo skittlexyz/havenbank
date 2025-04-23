@@ -9,6 +9,10 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import ForgotPassword from './pages/ForgotPassword.jsx'
 import Dashboard from './pages/Dashboard.jsx'
+import Profile from './pages/Profile.jsx'
+import Accounts from './pages/Accounts.jsx'
+import Transactions from './pages/Transactions.jsx'
+import Cards from './pages/Cards.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,6 +25,11 @@ createRoot(document.getElementById('root')).render(
         <Route path='/forgot-password' element={<PageWrapper content={<ForgotPassword />} />} />
 
         <Route path='/dashboard' element={<PageWrapper content={<Dashboard />} />} />
+
+        <Route path='/profile' element={<PageWrapper content={<Profile />} />} />
+        <Route path='/accounts' element={<PageWrapper content={<Accounts />} />} />
+        <Route path='/transactions' element={<PageWrapper content={<Transactions />} />} />
+        <Route path='/cards' element={<PageWrapper content={<Cards />} />} />
 
         <Route path='*' element={<PageWrapper content={<NotFound />} />} />
       </Routes>
