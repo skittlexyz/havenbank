@@ -11,7 +11,7 @@ import AppleIcon from "../assets/apple.png"
 function Login() {
     return (
         <>
-            <div className="flex flex-col gap-4 items-end p-4">
+            <div className="flex flex-col gap-4 items-center p-4">
                 <Logo className="mb-16" subtitle={true}/>
                 <div className="flex gap-4 w-full">
                     <Button onClick={() => {}} text={"Google"} color="black" icon={GoogleIcon} />
@@ -22,7 +22,7 @@ function Login() {
                 <Input type={"password"} placeholder={"Senha"}/>
                 <Link  href={"/forgot-password"} text={"Esqueceu sua senha?"}/>
                 <Button onClick={() => {}} text={"Log in"}/>
-                <p className="w-full text-center">Não possui uma conta? <Link href={"/register"} text={"Registre-se!"}/></p>
+                <p className="w-full text-center flex flex-col min-[370px]:flex-row justify-center items-center gap-0 min-[370px]:gap-2">Não possui uma conta? <Link href={"/register"} text={"Registre-se!"}/></p>
             </div>
             <Background />
         </>
