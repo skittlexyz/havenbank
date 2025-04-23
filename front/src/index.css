@@ -10,5 +10,7 @@
     --accent-hover: #a1cc12;
     --u-icon: #909090;
     --f-icon: #d3d3d3;
+    --ok: #54B690;
+    --error: #B4182D;
 }
 input { outline: none; }
