@@ -4,7 +4,7 @@ import { ArrowBigDown, ArrowBigUp, CircleSmall, Minus, Plus } from "lucide-react
 
 const AreaChart = ({ data }) => {
   const svgRef = useRef(null);
-  const tooltipRef = useRef();
+  const tooltipRef = useRef(null);
   const [tooltip, setTooltip] = useState({ display: 'none', content: null, x: 0, y: 0 });
 
   const graphIndicator = (value) => {
@@ -14,6 +14,9 @@ const AreaChart = ({ data }) => {
   };
 
   useEffect(() => {
+    console.log(svgRef.current.getBoundingClientRect())
+    console.log(tooltipRef.current.getBoundingClientRect())
+
     const margin = { top: 10, right: 10, bottom: 10, left: 10 };
     const width = 800 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
@@ -141,7 +144,7 @@ const AreaChart = ({ data }) => {
       <div
         ref={tooltipRef}
         className={`${tooltip.display === 'none' ? 'hidden' : 'absolute'} 
-          font-bold p-3 pl-1 gap-1 rounded-lg flex justify-center items-center !text-white bg-[var(--overlay)]/50 backdrop-blur-md w-48 h-24`}
+          font-bold p-3 pl-1 gap-1 rounded-lg flex justify-center items-center !text-white bg-[var(--overlay)]/50 backdrop-blur-md`}
         style={{
           left: tooltip.x,
           top: tooltip.y,
