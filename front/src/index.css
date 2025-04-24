@@ -4,13 +4,20 @@
 * { font-family: "Public Sans", sans-serif; color: var(--f-icon); user-select: none; }
 :root {
     --bg: #050e17;
+
     --overlay: #1e222d;
     --overlay-hover: #181c24;
+    
     --accent: #c8ff18;
     --accent-hover: #a1cc12;
+    
     --u-icon: #909090;
     --f-icon: #d3d3d3;
+    
     --ok: #54B690;
     --error: #B4182D;
+    
+    --card-primary: #c8ff18;
+    --card-secondary: rgb(237, 241, 117);
 }
 input { outline: none; }

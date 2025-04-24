@@ -2,10 +2,24 @@ import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 import { ArrowBigDown, ArrowBigUp, CircleSmall, Minus, Plus } from "lucide-react";
 
-const AreaChart = ({ data }) => {
+const AreaChart = ({ data, parentRef }) => {
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
-  const [tooltip, setTooltip] = useState({ display: 'none', content: null, x: 0, y: 0 });
+  const [tooltip, setTooltip] = useState({
+    visible: false,
+    content: (
+      <>
+        <CircleSmall size={64} />
+        <div className="flex flex-col justify-center items-end">
+          <p className="text-3xl !font-white">
+            <span className="text-sm">R$</span>--,--
+          </p>
+          <p className="text-sm !font-[var(--u-icon)]">DD/MM/YYYY</p>
+        </div>
+      </>
+    ),
+    x: 0, y: 0
+  });
 
   const graphIndicator = (value) => {
     if (value > 0) return <Plus size={64} color="var(--ok)" />;
@@ -14,12 +28,12 @@ const AreaChart = ({ data }) => {
   };
 
   useEffect(() => {
-    console.log(svgRef.current.getBoundingClientRect())
-    console.log(tooltipRef.current.getBoundingClientRect())
-
     const margin = { top: 10, right: 10, bottom: 10, left: 10 };
-    const width = 800 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    
+    const parentWidth = (parentRef.current.getBoundingClientRect().width) * 0.5;
+    
+    const width = parentWidth - margin.left - margin.right;
+    const height = (parentWidth / 2) - margin.top - margin.bottom;
 
     const svg = d3
       .select(svgRef.current)
@@ -90,32 +104,30 @@ const AreaChart = ({ data }) => {
       .attr("class", "intersection")
       .attr("cx", (d, i) => x(i))
       .attr("cy", (d) => y(d.value))
-      .attr("r", 6)
+      .attr("r", 7)
       .attr("fill", "var(--accent)")
-      .on("mouseover", (event, d) => {
-        // Calculate tooltip position based on mouse event
-        const xMargin = -240;
-        const yMargin = 15;
-
-        const containerWidth = document.querySelector("#chart").getBoundingClientRect().width;
-        const containerHeight = document.querySelector("#chart").getBoundingClientRect().height;
-
-        // Calculate X position
+      .on("mouseenter", (event, d) => {
+        setTooltip((prev) => ({ ...prev, visible: true }));
+      })
+      .on("mousemove", (event, d) => {
+        const chartProps = svgRef.current.getBoundingClientRect();
+        const tooltipProps = tooltipRef.current.getBoundingClientRect();
+      
+        const xMargin = (tooltipProps.width) * -1 - 45;
+        const yMargin = (tooltipProps.height / 2) * -1 + 15;
+      
         let x = event.clientX + xMargin;
-        if (x >= containerWidth) {
-          x = x + (xMargin * 0.875);
+        if (x + tooltipProps.width >= chartProps.width) {
+          x = x + (tooltipProps.width) * -1 - 45;
         }
-
-        // Calculate Y position
+      
         let y = event.clientY + yMargin;
-        console.log(tooltipRef.current.offsetHeight)
-        if (y >= containerHeight) {
-          y = y - 200;
+        if (y + tooltipProps.height >= chartProps.height) {
+          y = y + (tooltipProps.height) * -1 + 15;
         }
-
-        // Update tooltip content and position
+      
         setTooltip({
-          display: 'absolute',
+          visible: true,
           content: (
             <>
               {graphIndicator(Math.random() - 0.5)}
@@ -131,23 +143,27 @@ const AreaChart = ({ data }) => {
           y: y,
         });
       })
-      .on("mouseout", () => {
-        setTooltip({ display: 'none', content: null, x: 0, y: 0 });
+      .on("mouseleave", () => {
+        setTooltip((previousState) => ({ ...previousState, visible: false }));
       });
+      
   }, [data]);
 
   return (
-    <div className="w-fit relative">
+    <div className="w-fit h-fit relative border-2 rounded-xl border-[var(--overlay)] p-4">
       <svg id="chart" ref={svgRef}></svg>
-
-      {/* Tooltip rendering */}
       <div
+        id="tooltip"
         ref={tooltipRef}
-        className={`${tooltip.display === 'none' ? 'hidden' : 'absolute'} 
-          font-bold p-3 pl-1 gap-1 rounded-lg flex justify-center items-center !text-white bg-[var(--overlay)]/50 backdrop-blur-md`}
+        className={`absolute transition-all duration-150 
+    font-bold p-3 pl-1 gap-1 rounded-lg flex justify-center items-center !text-white 
+    bg-[var(--overlay)]/50 backdrop-blur-md`}
         style={{
           left: tooltip.x,
           top: tooltip.y,
+          visibility: tooltip.visible ? 'visible' : 'hidden',
+          opacity: tooltip.visible ? 1 : 0,
+          pointerEvents: tooltip.visible ? 'auto' : 'none',
         }}
       >
         {tooltip.content}

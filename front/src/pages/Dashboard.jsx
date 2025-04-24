@@ -1,8 +1,12 @@
+import { useRef } from "react";
 import AreaChart from "../components/AreaChart";
 import Aside from "../components/Aside"
 import Background from "../components/Background"
+import Card from "../components/Card";
+import QuickActions from "../components/QuickActions";
 
 function Dashboard() {
+    const mainRef = useRef(null);
     const data = [
         { date: '2025-01-01', value: 0 },
         { date: '2025-02-01', value: 10 },
@@ -20,7 +24,10 @@ function Dashboard() {
     return (
         <div className="w-screen h-screen flex">
             <Aside />
-            <AreaChart data={data} />
+            <main className="w-full h-screen flex p-8 gap-8" ref={mainRef}>
+                <QuickActions />
+                <AreaChart data={data} parentRef={mainRef} />
+            </main>
             <Background />
         </div>
     )
