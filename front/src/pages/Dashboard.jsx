@@ -8,10 +8,10 @@ import QuickActions from "../components/QuickActions";
 function Dashboard() {
     const mainRef = useRef(null);
     const data = [
-        { date: '2025-01-01', value: 0 },
-        { date: '2025-02-01', value: 10 },
-        { date: '2025-02-01', value: 20 },
-        { date: '2025-03-01', value: 30 },
+        { date: '2025-01-01', value: 10 },
+        { date: '2025-02-01', value: -10 },
+        { date: '2025-02-01', value: -20 },
+        { date: '2025-03-01', value: -30 },
         { date: '2025-04-01', value: 40 },
         { date: '2025-05-01', value: 50 },
         { date: '2025-05-01', value: 60 },

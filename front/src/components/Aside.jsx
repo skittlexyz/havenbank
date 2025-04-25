@@ -21,7 +21,7 @@ function Aside() {
     ]
     
     return (
-        <div className="h-screen w-64 border-r-2 border-r-[var(--overlay)] p-8 flex flex-col gap-2">
+        <div className="h-screen min-w-64 max-w-64 border-r-2 border-r-[var(--overlay)] p-8 flex flex-col gap-2">
             <Logo />
             <Divider />
             {/* eslint-disable-next-line no-unused-vars */}
