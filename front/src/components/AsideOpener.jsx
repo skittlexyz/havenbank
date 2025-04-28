@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react"
 
 function AsideOpener({ onClick }) {
     return (
-        <div className="absolute left-0 top-[calc(50%-16px)] pl-4" onClick={onClick}>
+        <div className="fixed left-0 top-[calc(50%-16px)] pl-4" onClick={onClick}>
             <ArrowRight size={32} color="var(--u-icon)" className="cursor-pointer" />
         </div>
     )

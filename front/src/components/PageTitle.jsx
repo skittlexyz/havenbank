@@ -1,8 +1,8 @@
-function PageTitle({ text, icon = null}) {
+function PageTitle({ text, button = null}) {
     return (
-        <div className="flex justify-between">
-            <p className="text-xl">{text}</p>
-            {icon && icon}
+        <div className="w-full flex justify-between items-center">
+            <p className="text-2xl">{text}</p>
+            {button && button}
         </div>
     )
 }

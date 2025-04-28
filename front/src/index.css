@@ -21,3 +21,4 @@
     --card-secondary: rgb(237, 241, 117);
 }
 input { outline: none; }
+html { overflow-x: hidden; }

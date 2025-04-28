@@ -1,4 +1,4 @@
-import Background from "../components/Background"
+
 import { LoaderCircle } from "lucide-react"
 
 function Logout() {
@@ -10,7 +10,7 @@ function Logout() {
                 </div>
                 <p>Desconectando...</p>
             </div>
-            <Background />
+            
         </>
     )
 }

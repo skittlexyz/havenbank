@@ -1,4 +1,4 @@
-import Background from "../components/Background"
+
 import Button from "../components/Button"
 import Divider from "../components/Divider"
 import Input from "../components/Input"
@@ -24,7 +24,7 @@ function Login() {
                 <Button onClick={() => {}} text={"Log in"}/>
                 <p className="w-full text-center flex flex-col min-[370px]:flex-row justify-center items-center gap-0 min-[370px]:gap-2">Não possui uma conta? <Link href={"/register"} text={"Registre-se!"}/></p>
             </div>
-            <Background />
+            
         </>
     )
 }

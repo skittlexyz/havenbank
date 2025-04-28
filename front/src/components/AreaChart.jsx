@@ -29,7 +29,7 @@ const AreaChart = ({ data, parentRef }) => {
   };
 
   useEffect(() => {
-    const margin = { top: 10, right: 10, bottom: 10, left: 10 };
+    const margin = { top: 25, right: 20, bottom: 25, left: 20 };
     const parentWidth = (parentRef.current.getBoundingClientRect().width);
     const parentHeight = (parentRef.current.getBoundingClientRect().height);
     const width = parentWidth - margin.left - margin.right;
@@ -47,7 +47,7 @@ const AreaChart = ({ data, parentRef }) => {
 
     // Update y-scale to handle negative values
     const y = d3.scaleLinear()
-      .domain([d3.min(data, d => d.value) * 1.1, d3.max(data, d => d.value) * 1.1]) // Add 10% padding
+      .domain([d3.min(data, d => d.value) * 1, d3.max(data, d => d.value) * 1]) // Add 10% padding
       .nice()
       .range([height, 0]);
 
@@ -178,7 +178,7 @@ const AreaChart = ({ data, parentRef }) => {
   }, [data]);
 
   return (
-    <div className="w-fit h-fit relative border-2 rounded-xl border-[var(--overlay)] p-4">
+    <div className="w-fit h-fit relative border-2 rounded-xl border-[var(--overlay)] p-0">
       <svg id="chart" ref={svgRef}></svg>
       <div
         id="tooltip"

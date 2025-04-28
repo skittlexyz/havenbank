@@ -35,7 +35,7 @@ function Aside() {
     return (
         <>
             <AsideOpener onClick={() => setOpened(true)}/>
-            <div className={`absolute ${opened ? "w-screen" : "w-0"} h-screen flex duration-500`}>
+            <div className={`fixed ${opened ? "w-screen" : "w-0"} h-screen flex duration-500`}>
                 <div className={`z-20 ${opened ? "bg-[var(--bg)]/25" : "bg-transparent"} duration-500 h-screen w-full backdrop-blur-sm`} id="shadow"></div>
                 <div {...swipeHandler} className={`fixed top-0 ${opened ? "left-0" : "-left-64"} z-20 duration-500 bg-[var(--bg)] h-screen min-w-64 max-w-64 border-r-2 border-r-[var(--overlay)] p-8 flex flex-col gap-2`}>
                     <Logo />

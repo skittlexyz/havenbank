@@ -1,4 +1,4 @@
-import Background from "../components/Background"
+
 import { OctagonX } from "lucide-react"
 
 function NotFound() {
@@ -11,7 +11,7 @@ function NotFound() {
                 </div>
                 <p>Not found.</p>
             </div>
-            <Background />
+            
         </>
     )
 }
