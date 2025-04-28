@@ -4,7 +4,7 @@ import Aside from "../components/Aside"
 import Background from "../components/Background"
 import Card from "../components/Card";
 import QuickActions from "../components/QuickActions";
-
+import PageTitle from "../components/PageTitle";
 function Dashboard() {
     const mainRef = useRef(null);
     const data = [
@@ -24,9 +24,12 @@ function Dashboard() {
     return (
         <div className="w-screen h-screen flex">
             <Aside />
-            <main className="w-full h-screen flex p-8 gap-8" ref={mainRef}>
+            <main className="w-full h-screen flex flex-col p-8 items-center gap-8">
+                <PageTitle text={"Dashboard"}/>
+                {/* <AreaChart data={data} parentRef={mainRef} /> */}
                 <QuickActions />
-                <AreaChart data={data} parentRef={mainRef} />
+                <div className="w-96 h-96 flex justify-center items-center" ref={mainRef}>
+                </div>
             </main>
             <Background />
         </div>

@@ -11,7 +11,7 @@ function Card({ className }) {
                 </div>
                 <div className="w-full flex justify-between items-end">
                     <p className="!text-black text-2xl">**** 2401</p>
-                    <img className="w-auto h-10" src={VisaLogo} alt="" />
+                    <img className="w-auto h-8" src={VisaLogo} alt="" />
                 </div>
             </div>
         </>

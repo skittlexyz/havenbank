@@ -30,9 +30,10 @@ const AreaChart = ({ data, parentRef }) => {
 
   useEffect(() => {
     const margin = { top: 10, right: 10, bottom: 10, left: 10 };
-    const parentWidth = (parentRef.current.getBoundingClientRect().width) * 0.5;
+    const parentWidth = (parentRef.current.getBoundingClientRect().width);
+    const parentHeight = (parentRef.current.getBoundingClientRect().height);
     const width = parentWidth - margin.left - margin.right;
-    const height = (parentWidth / 2) - margin.top - margin.bottom;
+    const height = parentHeight - margin.top - margin.bottom;
 
     // Clear previous SVG content
     d3.select(svgRef.current).selectAll("*").remove();
@@ -162,7 +163,7 @@ const AreaChart = ({ data, parentRef }) => {
                 <p className="text-3xl !font-white">
                   <span className="text-sm">R$</span>{formatMoney(d.value)}
                 </p>
-                <p className="text-sm !font-[var(--u-icon)]">{new Date(d.date).toLocaleDateString('pt-BR')}</p>
+                <p className="text-sm !font-[var(--u-icon)]">{d.date}</p>
               </div>
             </>
           ),
