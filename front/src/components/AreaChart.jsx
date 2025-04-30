@@ -32,7 +32,7 @@ const AreaChart = ({ data, parentRef }) => {
     const margin = { top: 25, right: 20, bottom: 25, left: 20 };
     const parentWidth = (parentRef.current.getBoundingClientRect().width);
     const parentHeight = (parentRef.current.getBoundingClientRect().height);
-    const width = parentWidth - margin.left - margin.right;
+    const width = parentWidth - margin.left - margin.right - (margin.left / 6);
     const height = parentHeight - margin.top - margin.bottom;
 
     // Clear previous SVG content

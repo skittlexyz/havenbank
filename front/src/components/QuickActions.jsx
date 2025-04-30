@@ -4,7 +4,7 @@ import Wallet from "./Wallet";
 function QuickActions() {
     
     return (
-        <div className="flex flex-col gap-4 h-full">
+        <div className="flex flex-col gap-4 h-full w-fit">
             <Wallet />
             <Transactions />
         </div>

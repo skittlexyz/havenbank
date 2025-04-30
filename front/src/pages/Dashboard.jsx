@@ -23,12 +23,12 @@ function Dashboard() {
     ];
 
     return (
-        <div className="w-screen h-full flex">
+        <div className="w-screen h-screen flex">
             <Aside />
-            <main className="w-full h-full flex flex-col py-8 px-128 gap-8">
+            <main className="w-full h-full flex flex-col py-8 sm:px-16 lg:px-16 gap-8">
                 <PageTitle text={"Dashboard"} button={<NotificationBell />}/>
-                <div className="flex w-full h-full gap-8">
-                    <div className="w-full h-full flex flex-col gap-8">
+                <div className="flex w-full h-full gap-8 lg:flex-row flex-col">
+                    <div className="w-fit h-full flex flex-col gap-8">
                         <QuickActions />
 
                     </div>

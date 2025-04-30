@@ -11,8 +11,8 @@ function Wallet() {
     }
 
     return (
-        <div className="flex flex-col w-106 items-center z-10">
-            <Card className={"absolute"} />
+        <div className="flex flex-col w-106 items-center z-10 relative">
+            <Card className={"absolute top-0"} />
             <div className={"transition-all duration-500 h-fit w-full z-20 relative flex flex-col " + (openedWallet ? "mt-62" : "mt-4")}>
                 <div className="w-full flex relative justify-center">
                     <div className="bg-[var(--overlay)] w-full rounded-tl-xl"></div>
